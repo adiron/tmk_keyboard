@@ -21,11 +21,17 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* 3: FN 3 - Spacebar modifier layer thing  */
     KEYMAP(ESC, 1,2,3,4,5,6,7,  8,  9,  0,  DELETE, \
-           CAPS, MINUS,EQUAL,LBRACKET,RBRACKET,TRNS,LEFT,  DOWN,  UP,  RIGHT,  TRNS,  TRNS, \
+           CAPS, MINUS,EQUAL,LBRACKET,RBRACKET,TRNS,LEFT,  DOWN,  UP,  RIGHT,  FN6,  TRNS, \
            TRNS,    TRNS,   TRNS,   FN5,   TRNS,   TRNS,   END,  PGDOWN, PGUP, HOME, BSLASH,TRNS, \
            TRNS, TRNS,     TRNS,  TRNS,       FN4,      TRNS, TRNS, TRNS, TRNS),
 
-   /* 4:  LED Mode */
+    /* 4: Numpad! */
+   KEYMAP(TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,KP_7, KP_8,KP_9,TRNS, TRNS, \
+          TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  KP_4,  KP_5,  KP_6,  TRNS,  TRNS, \
+          TRNS,    TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,  KP_1, KP_2, KP_3, TRNS,TRNS, \
+          TRNS, TRNS,     TRNS,  TRNS,       KP_0,      KP_DOT, TRNS, TRNS, TRNS),
+
+   /* 5:  LED Mode */
    KEYMAP(TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS, \
           TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS, \
           TRNS,    TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,  TRNS, TRNS, TRNS, TRNS,TRNS, \
@@ -35,11 +41,11 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 const uint16_t PROGMEM fn_actions[] = {
     [0]  = ACTION_LAYER_TOGGLE(1), // L1 lock
     [1]  = ACTION_LAYER_MOMENTARY(1), // L1 normal
-    [2]  = ACTION_LAYER_TOGGLE(2), //  L2 lock
+    [2]  = ACTION_LAYER_TAP_TOGGLE(2), //  L2 lock or toggle
     [3]  = ACTION_LAYER_TAP_KEY(3, KC_SPC), // L3 space
     [4]  = ACTION_LAYER_TOGGLE(3), // L3 lock
     [5]  = ACTION_BACKLIGHT_TOGGLE(), // Backlight toggle
-    [6]  = ACTION_MODS_KEY(MOD_LSFT, KC_3),
+    [6]  = ACTION_LAYER_TOGGLE(4), // Toggle the numpad layer
     [7]  = ACTION_MODS_KEY(MOD_LSFT, KC_4),
     [8]  = ACTION_MODS_KEY(MOD_LSFT, KC_5),
     [9]  = ACTION_MODS_KEY(MOD_LSFT, KC_6),
