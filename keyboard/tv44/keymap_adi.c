@@ -1,5 +1,10 @@
 #include "keymap_common.h"
 
+enum macro_id {
+    EMAIL,
+    FUCK
+};
+
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* 0: qerty */
     KEYMAP(GRV,  Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   BSPC, \
@@ -14,7 +19,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            TRNS, TRNS,  TRNS, TRNS,    TRNS,     TRNS, TRNS, TRNS, FN0),
 
     /* 2: FN 2  - Mousekeys!!! */
-   KEYMAP(TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,BTN1, BTN2,TRNS,TRNS, TRNS, \
+   KEYMAP(FN7,FN8,TRNS,TRNS,TRNS,TRNS,TRNS,BTN1, BTN2,TRNS,TRNS, TRNS, \
           TRNS,TRNS,TRNS,TRNS,MS_WH_UP,MS_WH_DOWN,TRNS,  MS_DOWN,  MS_UP,  MS_RIGHT,  TRNS,  TRNS, \
           TRNS,    TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,  TRNS, TRNS, TRNS, TRNS,TRNS, \
           TRNS, TRNS,     TRNS,  TRNS,       TRNS,      TRNS, TRNS, TRNS, TRNS),
@@ -46,8 +51,8 @@ const uint16_t PROGMEM fn_actions[] = {
     [4]  = ACTION_LAYER_TOGGLE(3), // L3 lock
     [5]  = ACTION_BACKLIGHT_TOGGLE(), // Backlight toggle
     [6]  = ACTION_LAYER_TOGGLE(4), // Toggle the numpad layer
-    [7]  = ACTION_MODS_KEY(MOD_LSFT, KC_4),
-    [8]  = ACTION_MODS_KEY(MOD_LSFT, KC_5),
+    [7]  = ACTION_MACRO(EMAIL), // Type out my email address.
+    [8]  = ACTION_MACRO(FUCK), // Type out fuck because I'm 12
     [9]  = ACTION_MODS_KEY(MOD_LSFT, KC_6),
     [10] = ACTION_MODS_KEY(MOD_LSFT, KC_7),
     [11] = ACTION_MODS_KEY(MOD_LSFT, KC_8),
@@ -62,4 +67,22 @@ const uint16_t PROGMEM fn_actions[] = {
     [20] = ACTION_LAYER_TOGGLE(4),
     [21] = ACTION_LAYER_TAP_KEY(1, KC_QUOT),
     [22] = ACTION_MODS_TAP_KEY(MOD_LSFT, KC_ESC)
+};
+
+const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
+{
+    keyevent_t event = record->event;
+    //uint8_t tap_count = record->tap_count;
+
+    switch (id) {
+        case EMAIL:
+            return (event.pressed ?
+                    MACRO( T(A), T(D), T(I), D(RSHIFT), T(2), U(RSHIFT),  T(A), T(D), T(I), T(R), T(O), T(N), T(DOT), T(M), T(E)) :
+                    MACRO( END ));
+        case FUCK:
+            return (event.pressed ?
+                    MACRO( T(F), T(U), T(C), T(K) ) :
+                    MACRO( END ));
+    }
+    return MACRO_NONE;
 };
