@@ -6,7 +6,7 @@ enum macro_id {
 };
 
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    /* 0: qerty */
+    /* 0: qwerty */
     KEYMAP(GRV,  Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   BSPC, \
            TAB,   A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT, \
            LSFT,   Z,   X,   C,   V,   B,   N,   M,   COMM,DOT,SLSH,RSHIFT, \
