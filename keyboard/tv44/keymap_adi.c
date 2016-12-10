@@ -77,12 +77,12 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
     switch (id) {
         case EMAIL:
             return (event.pressed ?
-                    MACRO( T(A), T(D), T(I), D(RSHIFT), T(2), U(RSHIFT),  T(A), T(D), T(I), T(R), T(O), T(N), T(DOT), T(M), T(E)) :
-                    MACRO( END ));
+                    MACRO( I(2), T(A), T(D), T(I), D(RSHIFT), T(2), U(RSHIFT),  T(A), T(D), T(I), T(R), T(O), T(N), T(DOT), T(M), T(E), END) :
+                    MACRO_NONE);
         case FUCK:
             return (event.pressed ?
-                    MACRO( T(F), T(U), T(C), T(K) ) :
-                    MACRO( END ));
+                    MACRO( I(2), T(F), T(U), T(C), T(K), END) :
+                    MACRO_NONE);
     }
     return MACRO_NONE;
 };
