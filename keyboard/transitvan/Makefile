@@ -39,17 +39,7 @@
 #----------------------------------------------------------------------------
 
 # Target file name (without extension).
-ifdef TARGETFILE
-	TARGET = $(TARGETFILE)
-else
-	TARGET = tv44_lufa
-endif
-
-ifdef LEDCONF
-	LED = $(LEDCONF).c
-else
-	LED = led.c
-endif
+TARGET = transitvan_lufa
 
 # Directory common source filess exist
 TMK_DIR = ../../tmk_core
@@ -60,12 +50,12 @@ TARGET_DIR = .
 # project specific files
 SRC =	keymap_common.c \
 	matrix.c \
-	$(LED)
+	led.c
 
 ifdef KEYMAP
     SRC := keymap_$(KEYMAP).c $(SRC)
 else
-    SRC := keymap_tv44.c $(SRC)
+    SRC := keymap_transitvan.c $(SRC)
 endif
 
 CONFIG_H = config.h
