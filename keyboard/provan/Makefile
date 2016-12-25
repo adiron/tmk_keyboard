@@ -42,7 +42,7 @@
 ifdef TARGETFILE
 	TARGET = $(TARGETFILE)
 else
-	TARGET = tv44_lufa
+	TARGET = provan_lufa
 endif
 
 ifdef LEDCONF
@@ -65,7 +65,7 @@ SRC =	keymap_common.c \
 ifdef KEYMAP
     SRC := keymap_$(KEYMAP).c $(SRC)
 else
-    SRC := keymap_tv44.c $(SRC)
+    SRC := keymap_provan.c $(SRC)
 endif
 
 CONFIG_H = config.h
