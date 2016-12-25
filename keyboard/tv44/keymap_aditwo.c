@@ -14,7 +14,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* 1: Raise layer */
     KEYMAP(ESC,  1, 2, 3, 4, 5, 6,7,8,9,0,  DEL, \
            CAPS, F1,F2,F3, F4,F5,F6, MINS,EQL,LBRC,RBRC,  BSLS, \
-           TRNS, F7,F8,F9, F10,F11,F12,MSTP,MPLY,PGUP,PGDN, TRNS, \
+           TRNS, F7,F8,F9, F10,F11,F12,NUHS,NUBS,PGUP,PGDN, TRNS, \
            TRNS, TRNS,  TRNS, TRNS,    TRNS,     TRNS, TRNS, TRNS, FN3),
 
     /* 2: ENTFN layer */
