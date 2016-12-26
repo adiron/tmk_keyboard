@@ -24,7 +24,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            TRNS, TRNS,  TRNS, TRNS,    TRNS,     TRNS, TRNS, FN3),
 
     /* 3: Utils */
-    KEYMAP(TRNS,  TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   FN11,   FN12,   TRNS, \
+    KEYMAP(TRNS,  SLCK,   PAUS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   FN11,   FN12,   TRNS, \
            TRNS,   VOLU,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS, MEDIA_REWIND, MPLY, MEDIA_FAST_FORWARD, TRNS, TRNS, \
            TRNS,   VOLD,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS, TRNS, TRNS,TRNS,TRNS,TRNS, \
            TRNS, TRNS,  TRNS, TRNS,    TRNS,     TRNS, TRNS, TRNS),
