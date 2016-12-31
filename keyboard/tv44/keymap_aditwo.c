@@ -7,9 +7,9 @@
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* 0: QWERTY */
     KEYMAP(GRV,  Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   BSPC, \
-           TAB,   A,   S,   D,   F,   G,   H,   J,   K,   L,  FN10,QUOT, \
+           TAB,   A,   S,   D,   F,   G,   H,   J,   K,   L,  FN10,FN2, \
            LSFT,   Z,   X,   C,   V,   B,   N,   M,  COMM,DOT,SLSH,RSFT, \
-           LCTL,  LALT,  LGUI, SPC,    FN0,    FN1, RGUI, FN2),
+           LCTL,  LALT,  LGUI, SPC,    FN0,    FN1, RGUI, RCTL),
 
     /* 1: Raise layer */
     KEYMAP(ESC,  1, 2, 3, 4, 5, 6,7,8,9,0,  DEL, \
@@ -35,7 +35,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            TRNS, TRNS,  TRNS, TRNS,    TRNS,     TRNS, TRNS, TRNS),
     /* 5: Game layer */
     KEYMAP(GRV,  Q,   W,   E,   R,   T,   Y,   7,   8,   9,   0,   BSPC, \
-           TAB,   A,   S,   D,   F,   G,   H,   4,   5,   6,  FN10,QUOT, \
+           TAB,   A,   S,   D,   F,   G,   H,   4,   5,   6,  FN10,FN2, \
            LSFT,   Z,   X,   C,   V,   B,   N,   1,  2, 3,SLSH,RSFT, \
            LCTL,  LALT,  LGUI, SPC,    FN0,    FN1, RGUI, FN2),
 };
@@ -43,7 +43,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 const uint16_t PROGMEM fn_actions[] = {
     [0]  = ACTION_LAYER_TAP_KEY(2, KC_ENT), // ENTFN
     [1]  = ACTION_LAYER_MOMENTARY(1), // RAISE
-    [2]  = ACTION_LAYER_MOMENTARY(3), // UTILS
+    [2]  = ACTION_LAYER_TAP_KEY(3, KC_QUOT), // UTILS
     [3]  = ACTION_BACKLIGHT_TOGGLE(), // Backlight toggle
     [4]  = ACTION_MACRO(0),
     [5]  = ACTION_MACRO(1),
