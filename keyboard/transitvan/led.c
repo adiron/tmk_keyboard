@@ -32,14 +32,3 @@ void led_set(uint8_t usb_led)
         PORTB &= ~(1<<2);
     }
 }
-
-void led_layer_set(uint32_t state) {
-    DDRB |= (1<<2);
-
-    /* Led for Layer 2 */
-    if ((1<<4  & state) != 0) {
-        PORTB |= (1<<2);
-    } else {
-        PORTB &= ~(1<<2);
-    }
-}

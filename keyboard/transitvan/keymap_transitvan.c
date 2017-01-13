@@ -24,15 +24,9 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            ESC, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  F5,  F6,  F7,  F8,  ENT, \
            TRNS, TRNS,    1,   2,   3,   4,   5,   6,  F9, F10, F11, F12,TRNS, \
            TRNS, TRNS, TRNS),
-
-   /* 4:  LED Mode */
-   KEYMAP(TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS, TRNS, \
-          TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  TRNS,  TRNS,  TRNS,  TRNS,  TRNS, \
-          TRNS, TRNS,    TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,  TRNS, TRNS, TRNS, TRNS,TRNS, \
-          TRNS, TRNS, TRNS),
 };
 
-const uint16_t PROGMEM fn_actions[] = {
+const action_t PROGMEM fn_actions[] = {
     [0]  = ACTION_LAYER_MOMENTARY(1),
     [1]  = ACTION_LAYER_MOMENTARY(2),
     [2]  = ACTION_LAYER_TOGGLE(3),
@@ -52,8 +46,5 @@ const uint16_t PROGMEM fn_actions[] = {
     [16] = ACTION_MODS_KEY(MOD_LSFT, KC_MINS),
     [17] = ACTION_MODS_KEY(MOD_LSFT, KC_EQL),
     [18] = ACTION_MODS_KEY(MOD_LSFT, KC_LBRC),
-    [19] = ACTION_MODS_KEY(MOD_LSFT, KC_RBRC),
-    [20] = ACTION_LAYER_TOGGLE(4),
-    [21] = ACTION_LAYER_TAP_KEY(1, KC_QUOT),
-    [22] = ACTION_MODS_TAP_KEY(MOD_LSFT, KC_ESC)
+    [19] = ACTION_MODS_KEY(MOD_LSFT, KC_RBRC)
 };

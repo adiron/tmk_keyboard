@@ -13,14 +13,9 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            LEFT,  DOWN,   RIGHT,   TRNS, \
            TRNS,  TRNS,   TRNS, TRNS ),
 
-   /* 2: FN 2 */
-   KEYMAP(TRNS,  TRNS,   TRNS,   TRNS, \
-          TRNS,  TRNS,   TRNS,   TRNS, \
-          TRNS,  TRNS,   TRNS,   TRNS, \
-          TRNS,  TRNS,   TRNS, TRNS ),
 };
 
-const uint16_t PROGMEM fn_actions[] = {
+const action_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_TOGGLE(1),
-    [1] = ACTION_LAYER_TOGGLE(2),
+    [1] = ACTION_BACKLIGHT_STEP(),
 };
