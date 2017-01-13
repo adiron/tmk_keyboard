@@ -15,7 +15,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(CAPS,  1, 2, 3, 4, 5, 6,7,8,9,0,  DEL, \
             ESC, F1,F2,F3, F4,F5,F6, MINS,EQL,LBRC,RBRC,  BSLS, \
            TRNS, F7,F8,F9, F10,F11,F12,NUHS,NUBS,PGUP,PGDN, TRNS, \
-           TRNS, TRNS,  TRNS, TRNS,    TRNS,     TRNS, TRNS, FN3),
+           TRNS, TRNS,  TRNS, FN12,    FN13,     TRNS, TRNS, FN3),
 
     /* 2: ENTFN layer */
     KEYMAP(TRNS,  FN6, FN7, TRNS, TRNS, TRNS, TRNS,TRNS,TRNS,FN8,FN9,  DEL, \
@@ -47,7 +47,9 @@ const action_t PROGMEM fn_actions[] = {
     [8]  = ACTION_MACRO(4),
     [9]  = ACTION_MACRO(5),
     [10] = ACTION_LAYER_TAP_KEY(4, KC_SCLN),
-    [11]  = ACTION_MACRO(6)
+    [11]  = ACTION_MACRO(6),
+    [12]  = ACTION_DEFAULT_LAYER_SET(1), // switch default to RAISE
+    [13]  = ACTION_DEFAULT_LAYER_SET(0), // switch default to QWERTY
 };
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
