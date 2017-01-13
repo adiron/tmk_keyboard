@@ -30,14 +30,25 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "keymap.h"
 
 
-extern const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS];
-extern const uint16_t fn_actions[];
-
-
-/* TV44 keymap definition macro
- * K2C, K31 and  K3C are extra keys for ISO
+/* roadkit keymap definition macro
+ * standard layout
  */
 #define KEYMAP( \
+    K00, K01, K02, K03, \
+    K10, K11, K12,      \
+    K20, K21, K22, K23, \
+    K30,      K32       \
+) { \
+    { KC_##K00, KC_##K01, KC_##K02, KC_##K03 }, \
+    { KC_##K10, KC_##K11, KC_##K12, KC_NO    }, \
+    { KC_##K20, KC_##K21, KC_##K22, KC_##K23 }, \
+    { KC_##K30, KC_NO,    KC_##K32, KC_NO    }  \
+}
+
+/* roadkit keymap definition macro
+ * macro layout
+ */
+#define SINGLES_KEYMAP( \
     K00, K01, K02, K03, \
     K10, K11, K12, K13, \
     K20, K21, K22, K23, \
@@ -48,35 +59,5 @@ extern const uint16_t fn_actions[];
     { KC_##K20, KC_##K21, KC_##K22, KC_##K23 }, \
     { KC_##K30, KC_##K31, KC_##K32, KC_##K33 }  \
 }
-
-/* ANSI valiant. No extra keys for ISO */
-#define KEYMAP_ANSI( \
-    K00, K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, K0B, K0C, K0D, \
-    K10, K11, K12, K13, K14, K15, K16, K17, K18, K19, K1A, K1B, K1C, K1D, \
-    K20, K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A, K2B,      K2D, \
-    K30, K32, K33, K34, K35, K36, K37, K38, K39, K3A, K3B,           K3D, \
-    K40, K41, K42,           K45,                     K4A, K4B, K4C, K4D  \
-) KEYMAP( \
-    K00, K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, K0B, K0C, K0D, \
-    K10, K11, K12, K13, K14, K15, K16, K17, K18, K19, K1A, K1B, K1C, K1D, \
-    K20, K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A, K2B, NO,  K2D, \
-    K30, NO,  K32, K33, K34, K35, K36, K37, K38, K39, K3A, K3B, NO,  K3D, \
-    K40, K41, K42,           K45,                NO,  K4A, K4B, K4C, K4D  \
-)
-
-
-#define KEYMAP_HHKB( \
-    K00, K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, K0B, K0C, K0D, K49,\
-    K10, K11, K12, K13, K14, K15, K16, K17, K18, K19, K1A, K1B, K1C, K1D, \
-    K20, K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A, K2B,      K2D, \
-    K30, K32, K33, K34, K35, K36, K37, K38, K39, K3A, K3B,      K3D, K3C, \
-    K40, K41, K42,           K45,                     K4A, K4B, K4C, K4D  \
-) KEYMAP( \
-    K00, K01, K02, K03, K04, K05, K06, K07, K08, K09, K0A, K0B, K0C, K0D, \
-    K10, K11, K12, K13, K14, K15, K16, K17, K18, K19, K1A, K1B, K1C, K1D, \
-    K20, K21, K22, K23, K24, K25, K26, K27, K28, K29, K2A, K2B, NO,  K2D, \
-    K30, NO,  K32, K33, K34, K35, K36, K37, K38, K39, K3A, K3B, K3C, K3D, \
-    K40, K41, K42,           K45,                K49, K4A, K4B, K4C, K4D  \
-)
 
 #endif
