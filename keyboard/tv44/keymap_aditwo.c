@@ -18,13 +18,13 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            TRNS, TRNS,  TRNS, TRNS,    TRNS,     TRNS, TRNS, FN3),
 
     /* 2: ENTFN layer */
-    KEYMAP(TRNS  FN6, FN7, TRNS, TRNS, TRNS, TRNS,TRNS,TRNS,FN8,FN9,  DEL, \
-            ESC, TRNS, MS_WH_LEFT, MS_WH_UP, MS_WH_DOWN, MS_WH_RIGHT, LEFT, DOWN, UP, RIGHT, TRNS,  TRNS, \
+    KEYMAP(TRNS,  FN6, FN7, TRNS, TRNS, TRNS, TRNS,TRNS,TRNS,FN8,FN9,  DEL, \
+            ESC, TRNS, MS_WH_LEFT, MS_WH_UP, MS_WH_DOWN, MS_WH_RIGHT, LEFT, DOWN, UP, RIGHT, TRNS,  FN11, \
            TRNS, FN4,FN5,TRNS, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS, \
            TRNS, TRNS,  TRNS, TRNS,    TRNS,     TRNS, TRNS, FN3),
 
     /* 3: Utils */
-    KEYMAP(TRNS,  SLCK,   PAUS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   FN11,   FN12,   TRNS, \
+    KEYMAP(TRNS,  SLCK,   PAUS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS, \
            TRNS,   VOLU,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS, MEDIA_REWIND, MPLY, MEDIA_FAST_FORWARD, TRNS, TRNS, \
            TRNS,   VOLD,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS, TRNS, TRNS,TRNS,TRNS,TRNS, \
            TRNS, TRNS,  TRNS, TRNS,    TRNS,     TRNS, TRNS, TRNS),
@@ -33,18 +33,13 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            TRNS,  TRNS, MS_WH_LEFT, MS_WH_UP ,MS_WH_DOWN, MS_WH_RIGHT, MS_L, MS_D, MS_U, MS_R, TRNS,TRNS, \
            TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS, TRNS, TRNS,TRNS,TRNS,TRNS, \
            TRNS, TRNS,  TRNS, TRNS,    TRNS,     TRNS, TRNS, TRNS),
-    /* 5: Game layer */
-    KEYMAP(GRV,  Q,   W,   E,   R,   T,   Y,   7,   8,   9,   0,   BSPC, \
-           TAB,   A,   S,   D,   F,   G,   H,   4,   5,   6,  FN10,FN2, \
-           LSFT,   Z,   X,   C,   V,   B,   N,   1,  2, 3,SLSH,RSFT, \
-           LCTL,  LALT,  LGUI, SPC,    FN0,    FN1, RGUI, FN2),
 };
 
-const uint16_t PROGMEM fn_actions[] = {
+const action_t PROGMEM fn_actions[] = {
     [0]  = ACTION_LAYER_TAP_KEY(2, KC_ENT), // ENTFN
     [1]  = ACTION_LAYER_MOMENTARY(1), // RAISE
     [2]  = ACTION_LAYER_TAP_KEY(3, KC_QUOT), // UTILS
-    [3]  = ACTION_BACKLIGHT_TOGGLE(), // Backlight toggle
+    [3]  = ACTION_BACKLIGHT_STEP(), // Backlight toggle
     [4]  = ACTION_MACRO(0),
     [5]  = ACTION_MACRO(1),
     [6]  = ACTION_MACRO(2),
@@ -52,8 +47,7 @@ const uint16_t PROGMEM fn_actions[] = {
     [8]  = ACTION_MACRO(4),
     [9]  = ACTION_MACRO(5),
     [10] = ACTION_LAYER_TAP_KEY(4, KC_SCLN),
-    [11] = ACTION_DEFAULT_LAYER_SET(5),
-    [12] = ACTION_DEFAULT_LAYER_SET(0),
+    [11]  = ACTION_MACRO(6)
 };
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
@@ -83,6 +77,9 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
             /* Command + = */
             return MACRO( D(LGUI), T(EQL), U(LGUI), END );
             break;
+        case 6:
+            /* Command + Enter */
+            return MACRO( D(LGUI), T(ENT), U(LGUI), END );
         default:
             break;
     }
