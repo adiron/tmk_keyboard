@@ -15,18 +15,18 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(CAPS,  1, 2, 3, 4, 5, 6,7,8,9,0,  DEL, \
             ESC, F1,F2,F3, F4,F5,F6, MINS,EQL,LBRC,RBRC,  BSLS, \
            TRNS, F7,F8,F9, F10,F11,F12,NUHS,NUBS,PGUP,PGDN, TRNS, \
-           TRNS, TRNS,  TRNS, TRNS,    TRNS,     TRNS, TRNS, FN3),
+           TRNS, TRNS,  TRNS, TRNS,    TRNS,     TRNS, TRNS, TRNS),
 
     /* 2: ENTFN layer */
     KEYMAP(TRNS,  FN6, FN7, TRNS, TRNS, TRNS, TRNS,TRNS,TRNS,FN8,FN9,  DEL, \
             ESC, TRNS, MS_WH_LEFT, MS_WH_UP, MS_WH_DOWN, MS_WH_RIGHT, LEFT, DOWN, UP, RIGHT, TRNS,  FN11, \
            TRNS, FN4,FN5,TRNS, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS, \
-           TRNS, TRNS,  TRNS, TRNS,    TRNS,     TRNS, TRNS, FN3),
+           TRNS, TRNS,  TRNS, TRNS,    TRNS,     TRNS, TRNS, TRNS),
 
     /* 3: Utils */
     KEYMAP(TRNS,  SLCK,   PAUS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS, \
            TRNS,   VOLU,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS, MEDIA_REWIND, MPLY, MEDIA_FAST_FORWARD, TRNS, TRNS, \
-           TRNS,   VOLD,   TRNS,   TRNS,   TRNS,   TRNS,   TRNS, TRNS, TRNS,TRNS,TRNS,TRNS, \
+           TRNS,   VOLD,   FN3,   TRNS,   TRNS,   TRNS,   TRNS, TRNS, TRNS,TRNS,TRNS,TRNS, \
            TRNS, TRNS,  TRNS, TRNS,    TRNS,     TRNS, TRNS, TRNS),
     /* 4: Mousekeys */
     KEYMAP(TRNS,  TRNS,   TRNS,   TRNS,   TRNS,   TRNS,   BTN1,   BTN2,   TRNS,   TRNS,   TRNS,   TRNS, \
