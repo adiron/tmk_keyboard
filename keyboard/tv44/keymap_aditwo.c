@@ -54,34 +54,36 @@ const action_t PROGMEM fn_actions[] = {
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
+    keyevent_t event = record->event;
+
     switch (id) {
         case 0:
             /* Command + [ */
-            return MACRO( D(LGUI), T(LBRC), U(LGUI), END );
+            return (event.pressed ? MACRO( D(LGUI), T(LBRC), U(LGUI), END ) : MACRO(END));
             break;
         case 1:
             /* Command + ] */
-            return MACRO( D(LGUI), T(RBRC), U(LGUI), END );
+            return (event.pressed ? MACRO( D(LGUI), T(RBRC), U(LGUI), END ) : MACRO(END));
             break;
         case 2:
             /* Command + { */
-            return MACRO( D(LGUI), D(RSFT), T(LBRC), U(RSFT), U(LGUI), END );
+            return (event.pressed ? MACRO( D(LGUI), D(RSFT), T(LBRC), U(RSFT), U(LGUI), END ) : MACRO(END));
             break;
         case 3:
             /* Command + } */
-            return MACRO( D(LGUI), D(RSFT), T(RBRC), U(RSFT), U(LGUI), END );
+            return (event.pressed ? MACRO( D(LGUI), D(RSFT), T(RBRC), U(RSFT), U(LGUI), END ) : MACRO(END));
             break;
         case 4:
             /* Command + - */
-            return MACRO( D(LGUI), T(MINS), U(LGUI), END );
+            return (event.pressed ? MACRO( D(LGUI), T(MINS), U(LGUI), END ) : MACRO(END));
             break;
         case 5:
             /* Command + = */
-            return MACRO( D(LGUI), T(EQL), U(LGUI), END );
+            return (event.pressed ? MACRO( D(LGUI), T(EQL), U(LGUI), END ) : MACRO(END));
             break;
         case 6:
             /* Command + Enter */
-            return MACRO( D(LGUI), T(ENT), U(LGUI), END );
+            return (event.pressed ? MACRO( D(LGUI), T(ENT), U(LGUI), END ) : MACRO(END));
         default:
             break;
     }
